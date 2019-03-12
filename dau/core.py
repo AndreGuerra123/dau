@@ -15,7 +15,7 @@ def err_cre(err_msg:str):
 class DjangoAutoUser():
 
     def __init__(self):
-        self.auto_user = settings['AUTO_USER']
+        self.auto_user = getattr(settings,'DJANGO_AUTO_USER')
         self.__validate()
         
     def __is_valid(self,obj,typ:type):
