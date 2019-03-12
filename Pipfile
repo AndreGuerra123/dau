@@ -5,11 +5,12 @@ verify_ssl = true
 
 [dev-packages]
 coverage = "*"
-tox = "*"
 codecov = "*"
+black = "*"
 
 [packages]
 django = "*"
+tox = "*"
 
 [requires]
 python_version = "3.6"
