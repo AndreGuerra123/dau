@@ -4,6 +4,8 @@ version = "0.1.1"
 description = "Automatic user creation at Django startup."
 authors = ["AndreGuerra123 <guerraandre@hotmail.com>"]
 license = "MIT"
+readme = "README.md"
+repository = "https://github.com/AndreGuerra123/dau"
 
 [tool.poetry.dependencies]
 python = "^3.6"
