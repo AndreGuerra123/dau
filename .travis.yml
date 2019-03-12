@@ -7,10 +7,10 @@ matrix:
       sudo: true
 
 before_install:
-  - pip install poetry 
+  - pip install pipenv 
 
 install:
-  - poetry install -v
+  - pipenv install --dev
 
 script:
   - tox
