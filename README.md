@@ -1,11 +1,10 @@
 
-[![Build Status](https://travis-ci.org/AndreGuerra123/django_barcode.png)](https://travis-ci.org/AndreGuerra123/django_barcode)
-[![codecov](https://codecov.io/gh/AndreGuerra123/django_barcode/branch/master/graph/badge.svg)](https://codecov.io/gh/AndreGuerra123/django_barcode)
+[![Build Status](https://travis-ci.org/AndreGuerra123/django_autouser.png)](https://travis-ci.org/AndreGuerra123/django_autouser)
+[![codecov](https://codecov.io/gh/AndreGuerra123/django_autouser/branch/master/graph/badge.svg)](https://codecov.io/gh/AndreGuerra123/django_autouser)
 
-# Django Barcode
+# Django Auto User
 
-Django Barcode is a Django (Python) library with a [EAN-13](https://en.wikipedia.org/wiki/International_Article_Number) standard barcode field from [python-barcode](https://github.com/WhyNotHugo/python-barcode). 
-It provides the means of supplying to Django models the capability of storing a standarized barcode.
+Django Auto User (DAU) is a Django (Python) library for the automatic creation of users.
 
 ## Installation
 
@@ -13,74 +12,42 @@ Use the package manager [pip](https://pip.pypa.io/en/stable/) to install Django 
 
 ```bash
 
-pip install django-barcode
+pip install dau
 
 ```
 
 ## Usage
 
-Just add the field to your models. No need to modify settings file.
+Add 'dau' to INSTALLED APPS after 'django.contrib.admin' in your settings.py:
+
 
 ```python
 
-from django.db import models 
-from django_barcode.fields import BarcodeField
-
-class Product(models.Model):
-    bc = BarcodeField()
+INSTALLED_APPS = [
+    ...
+    'django.contrib.admin',
+    'dau',
+    ...
+]
 
 ```
 
-Alternatively, it can be used as the primary key:
+Then, just add AUTO_USER settings to your settings.py file as:
 
 ```python
 
-from django.db import models 
-from django_barcode.fields import BarcodeField
-
-class Product(models.Model):
-    id = BarcodeField(primary_key=True)
-
-```
-
-The default values for the Country and Brand specification on the barcode are '950' and '0000'.
-The Country and Brand specification on the barcode may be altered in one of 2 ways:
-
-- Changing global defaults on settings.py file:
-```python
-
-BARCODE_COUNTRY = '123' 
-BARCODE_BRAND = '1234'
+AUTO_USER = [
+    {
+        'username':'admin',
+        'email':'admin@admin.com',
+        'password':'adminpass',
+        'is_superuser':True,
+        'is_staff':True,
+        'is_active':True
+    }
+]
 
 ```
-
-- Change field-specific defaults by setting the *kwargs explicitly:
-```python
-
-class Product(models.Model):
-    bc = BarcodeField(country='123',brand='1234')
-
-
-```
-
-In order to display the bars or the barcode in the templates:
-
-```html
-
-    {{ object.bc.bars }}
-    {{ object.bc.barcode }}
-
-```
-
-
-## TODO & Limitations
-
-- TODO:
-    * Make the documentation.
-    * Other barcode standards.
-
-- Limitations:
-The Barcode Field as a current limitation set by the EAN standard of  100 000 unique elements.
 
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
