@@ -32,11 +32,11 @@ INSTALLED_APPS = [
 
 ```
 
-Then, just add AUTO_USER settings to your settings.py file as:
+Then, just add DJANGO_AUTO_USER settings to your settings.py file as:
 
 ```python
 
-AUTO_USER = [
+DJANGO_AUTO_USER = [
     {
         'username':'admin',
         'email':'admin@admin.com',
