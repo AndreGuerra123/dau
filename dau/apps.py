@@ -7,6 +7,6 @@ class DjangoAutoUserConfig(AppConfig):
     name = 'dau'
     verbose_name = "Django Auto User"
     def ready(self):
-        signals.post_migrate.connect(core.post_migrate_receiver,sender=apps.get_app_config(self.name))
+        signals.post_migrate.connect(core.post_migrate_receiver,sender=apps.get_app_config("auth"))
     
 
