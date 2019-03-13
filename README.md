@@ -8,7 +8,7 @@ Django Auto User (DAU) is a Django (Python) library for the automatic creation o
 
 ## Installation
 
-Use the package manager [pip](https://pip.pypa.io/en/stable/) to install Django Barcode.
+Use the package manager [pip](https://pip.pypa.io/en/stable/) to install Django Auto User.
 
 ```bash
 
