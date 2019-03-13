@@ -43,7 +43,7 @@ class DjangoAutoUser():
         for idx, user_entry in enumerate(self.auto_user):
             self.__is_valid_user(idx,user_entry)
         
-        uuf=[user_entry[self.USERNAME_FIELD] for user_entry in self.autouser]
+        uuf=[user_entry[self.USERNAME_FIELD] for user_entry in self.auto_user]
         if len(uuf) != len(set(uuf)):
             err_set('The username field {} is not unique amoung users entries in Django_AUTO_USER'.format(self.USERNAME_FIELD))
 
